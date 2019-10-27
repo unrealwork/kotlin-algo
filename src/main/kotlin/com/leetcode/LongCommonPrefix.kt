@@ -11,7 +11,7 @@ class LongCommonPrefix {
             if (!allEquals) {
                 break;
             } else {
-                strs.map { s -> s[i] }.first()?.let { v -> sb.append(v) }
+                strs.map { s -> s[i] }.first().let { v -> sb.append(v) }
             }
         }
         return sb.toString()
