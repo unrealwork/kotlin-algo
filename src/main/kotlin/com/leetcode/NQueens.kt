@@ -40,10 +40,9 @@ class Board(val size: Int, val queens: Set<QueenPosition>) {
     fun next(): List<Board> {
         if (nextBoards == null) {
             nextBoards = (0 until size)
-                    .flatMap { i -> (0 until size).map { j -> (IndexedValue(i, j)) } }
-                    .map { (i, j) -> QueenPosition(i, j) }
-                    .filter { np -> queens.none { qp -> qp.intercepts(np) } }
-                    .map { np -> next(np) }
+                .map{ j -> QueenPosition(queens.size, j) }
+                .filter { np -> queens.none{qp -> qp.intercepts(np)} }
+                .map { np -> next(np) }
         }
         return nextBoards!!
     }
@@ -70,7 +69,7 @@ class Board(val size: Int, val queens: Set<QueenPosition>) {
 
 data class QueenPosition(val i: Int, val j: Int) {
     fun intercepts(other: QueenPosition): Boolean {
-        return (other.i == i) || (other.j == j)
+        return (other.j == j)
                 || (i - j == other.i - other.j) || (i + j == other.i + other.j)
     }
 
@@ -97,6 +96,6 @@ data class QueenPosition(val i: Int, val j: Int) {
 
 fun main(args: Array<String>) {
     val solution = NQueens()
-    val res = solution.solveNQueens(5)
+    val res = solution.solveNQueens(8)
     println(res)
 }
