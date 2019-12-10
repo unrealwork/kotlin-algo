@@ -1,4 +1,6 @@
-package com.leetcode
+package com.leetcode.tree
+
+import com.leetcode.tree.TreeNode
 
 class ValidBST {
     fun isValidBST(root: TreeNode?): Boolean {

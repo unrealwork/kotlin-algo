@@ -1,5 +1,6 @@
-package com.leetcode
+package com.leetcode.tree
 
+import com.leetcode.tree.TreeNode
 import kotlin.math.max
 
 class MaximumDepthOfBinaryTree {
