@@ -2,19 +2,19 @@ package com.leetcode
 
 class ProductOfArrayExceptSelf {
     fun productExceptSelf(nums: IntArray): IntArray {
-        val left = IntArray(nums.size)
-        left[0] = 1
+        val res = IntArray(nums.size)
+        res[0] = 1
         for (i in 1 until nums.size) {
-            left[i] = left[i - 1] * nums[i - 1]
+            res[i] = res[i - 1] * nums[i - 1]
         }
 
         var m = 1
         for (i in (nums.size - 2) downTo 0) {
             m *= nums[i + 1]
-            left[i] = m * left[i]
+            res[i] = m * res[i]
         }
 
-        return left
+        return res
     }
 }
 
